@@ -41,17 +41,17 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-            <?php if($_SERVER["SCRIPT_NAME"] != '/ampm/userview.php'): ?>
-                <a href="./register.php" class="button is-primary">
-                    <strong>Sign up</strong>
-                </a>
-                <a href="./" class="button is-light">
-                    Log in
-                </a>
-            <?php else: ?>
+            <?php if(strpos($_SERVER["SCRIPT_NAME"], "userview.php") !== false): ?>
                 <form action="./inc/logout.php" method="post">
-                    <input class="button is-light" type="submit" value="Logout">
+                  <input class="button is-light" type="submit" value="Logout">
                 </form>
+            <?php else: ?>
+              <a href="./register.php" class="button is-primary">
+                  <strong>Sign up</strong>
+              </a>
+              <a href="./" class="button is-light">
+                  Log in
+              </a>
             <?php endif; ?>
         </div>
       </div>
