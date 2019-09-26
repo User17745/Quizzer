@@ -1,0 +1,50 @@
+nav.navbar {
+    box-shadow: 0 4px 8px 0 rgba(0,209,178, 0.05), 0 6px 20px 0 rgba(0,209,178, 0.005);
+}
+
+.navbar-brand a.navbar-item {
+    font-family: 'Pacifico', cursive;
+    color: #00d1b2;
+}
+
+.navbar-burger {
+    background: #F2F2F2;
+}
+
+.card {
+    width: 35rem; 
+    margin: auto;
+}
+
+.table {
+    margin: auto;
+}
+
+.notification {
+    position: fixed;
+    top: 5rem;
+    left: 2rem;
+}
+
+.notification.is-danger {
+    background: #ff3860aa;
+}
+
+.card-loader {
+    height: .2rem;
+}
+.card-loader .progress {
+    border-radius: 0;
+    height: .2rem;
+    display: none;
+    box-shadow: 0 4px 8px 4px rgba(0,209,178, 0.1), 0 6px 20px 1px rgba(0,209,178, 0.1)
+}
+.card-loader .progress:indeterminate{
+    background-color: #fff;
+}
+.card-loader .progress.is-primary:indeterminate {
+    background-image: linear-gradient(to right,#00d1b2 30%,#fff 30%);
+}
+.card-loader .loading {
+    display: block;
+}
