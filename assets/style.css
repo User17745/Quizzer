@@ -1,3 +1,12 @@
+::-moz-selection {
+    color: #fff;
+    background: #34d1b1;
+}
+::selection {
+    color: #fff;
+    background: #34d1b1;
+}
+
 nav.navbar {
     box-shadow: 0 4px 8px 0 rgba(0,209,178, 0.05), 0 6px 20px 0 rgba(0,209,178, 0.005);
 }

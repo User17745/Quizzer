@@ -92,9 +92,10 @@
     </div>
 </section>
 <?php
-    $name = $email = $phone = $userPassword = $conUserPassword = "";
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $email  = $userPassword = $conUserPassword = "";
+        $phone = NULL;
+
         $name = $_POST['name'];
         $email = $_POST['email'];
         $userPassword = $_POST['password'];
@@ -104,8 +105,7 @@
         
         if($userPassword === $conUserPassword){
             $sqlQuery = "INSERT INTO users (name, email, password, phone) VALUES ('$name', '$email', '" . md5($userPassword) . "' ,'$phone' )";
-
-            if (mysqli_query($GLOBALS['sqlConnection'], $sqlQuery)) {
+            if ($GLOBALS['sqlConnection']->query($sqlQuery) === true) {
                 echo '
                 <div class="notification is-success">
                 <button class="delete"></button>
@@ -114,7 +114,7 @@
             } else
                 echo "Error : " . mysqli_error($GLOBALS['sqlConnection']);
 
-            mysqli_close($GLOBALS['sqlConnection']);
+            $GLOBALS['sqlConnection']->close();
 
             echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ./userview.php">';
             exit();

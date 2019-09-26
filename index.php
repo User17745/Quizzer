@@ -70,11 +70,15 @@
       if($dbpass === md5($password)){
         $_SESSION["user"] = $uname;
         $_SESSION["is_admin"] = $isAdmin;
+        
         echo '
         <div class="notification is-success">
           <button class="delete"></button>
           Logged in Successfully!
         </div>';
+        
+        $GLOBALS['sqlConnection']->close();
+
         echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ./userview.php">';
         exit();
       }

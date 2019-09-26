@@ -17,8 +17,6 @@ if(session_status() == PHP_SESSION_NONE)
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <!-- Custom Stylesheet -->
     <link href="./assets/style.css" rel="stylesheet" type="text/css">
-    <!-- Custom JavaScript -->
-    <script src="./assets/scripts.js"></script>
 </head>
 <body>
 <?php include 'navigation.php' ?>
