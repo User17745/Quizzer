@@ -9,7 +9,7 @@
 ?>
 
   <section class="section">
-    <div class="card">
+    <div class="card card-form">
         <div class="card-content">
             <p class="title">
               Welcome to the site!
@@ -53,6 +53,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $uname = $password = $dbpass = "";
       $isAdmin = false;
+      $username = "";
       
       $uname = $_POST["username"];
       $password = $_POST["password"];
@@ -64,11 +65,12 @@
           while($row = $result->fetch_assoc()){
             $dbpass = $row["password"];
             $isAdmin = $row["is_admin"];
+            $username = $row["name"];
           }
       }
         
       if($dbpass === md5($password)){
-        $_SESSION["user"] = $uname;
+        $_SESSION["user"] = $username;
         $_SESSION["is_admin"] = $isAdmin;
         
         echo '

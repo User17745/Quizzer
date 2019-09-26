@@ -4,11 +4,10 @@
     header("Location: ./userview.php");
     exit();
   }
-
   include './inc/header.php';
 ?>
 <section class="section">
-    <div class="card">
+    <div class="card card-form">
         <div class="card-content">
             <p class="title">
                 Registration

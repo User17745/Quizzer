@@ -1,3 +1,9 @@
+<section class="section">
+    <div class="container">
+      <h1 class="title">Hello, <?php echo $_SESSION["user"] ?>!</h1>
+        <p class="subtitle">Let's see what do we have...</p>
+    </div>
+</section>
 <table class="table">
     <tbody>
         <thead>

@@ -20,7 +20,7 @@ nav.navbar {
     background: #F2F2F2;
 }
 
-.card {
+.card-form{
     width: 35rem; 
     margin: auto;
 }
@@ -56,4 +56,39 @@ nav.navbar {
 }
 .card-loader .loading {
     display: block;
+}
+
+.card-question {
+    margin: 1rem;
+}
+
+.sidebar {
+    height: 38.2em;
+    background: #00d1b2;
+    color: #fff;
+    text-align: center;
+}
+.sidebar-header-img img {
+    width: 12rem;
+    margin-top: 2rem;
+    border-radius: 50%;
+}
+.sidebar-header-info-name {
+    font-size: 1.5rem;
+}
+.sidebar-header-info-status .tag {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 25px;
+}
+.sidebar-menu-item {
+    width: 80%;
+    margin: 1rem;
+    padding: 0.2rem 1rem;
+    font-size: 1.6rem;
+    text-align: left;
+    border-radius: 50px;
+}
+.sidebar-menu-item:hover {
+    background: rgba(255,255,255,0.2);
 }
