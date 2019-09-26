@@ -21,7 +21,7 @@
                 <div class="field">
                     <label class="label">Username</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" name="username" id="uname" required>
+                        <input class="input" type="text" name="username" id="uname" autocomplete="username" required>
                         <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                         </span>
@@ -31,7 +31,7 @@
                 <div class="field">
                     <label class="label">Password</label>
                     <p class="control has-icons-left">
-                        <input class="input" type="password" name="password" id="pword" required>
+                        <input class="input" type="password" name="password" id="pword" autocomplete="password" required>
                         <span class="icon is-small is-left">
                         <i class="fas fa-lock"></i>
                         </span>
@@ -50,23 +50,15 @@
   </section>
 
   <?php
-    $uname = $password = $dbpass = "";
-    $isAdmin = false;
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+      $uname = $password = $dbpass = "";
+      $isAdmin = false;
+      
       $uname = $_POST["username"];
       $password = $_POST["password"];
 
-      $conn = new mysqli("localhost", "root", "", "ampm");
-
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
-
-      $sql = "SELECT * FROM users WHERE name  = '$uname'";
-      $result = $conn->query($sql);
-
+      $sqlQuery = "SELECT * FROM users WHERE name  = '$uname'";
+      $result = $GLOBALS['sqlConnection']->query($sqlQuery);
       if ($result) {
         if($result->num_rows > 0)
           while($row = $result->fetch_assoc()){

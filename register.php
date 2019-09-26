@@ -18,9 +18,9 @@
             </p>
             <form action="<?php $_SERVER["PHP_SELF"]?>" method="post" onsubmit="startLoading()">
                 <div class="field">
-                    <label class="label">Username</label>
+                    <label class="label">Username*</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" name="name" id="name" required>
+                        <input class="input" type="text" name="name" id="name" autocomplete="username" required>
                         <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                         </span>
@@ -29,9 +29,9 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Email</label>
+                    <label class="label">Email*</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" name="email" id="email" required>
+                        <input class="input" type="email" name="email" id="email" autocomplete="email" required>
                         <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                         </span>
@@ -40,9 +40,9 @@
 
                 <div class="field-body">
                     <div class="field">
-                        <label class="label">Password</label>
+                        <label class="label">Password*</label>
                         <p class="control has-icons-left">
-                            <input class="input" type="password" name="password" id="password" required>
+                            <input class="input" type="password" name="password" id="password" autocomplete="new-password" required>
                             <span class="icon is-small is-left">
                             <i class="fas fa-lock"></i>
                             </span>
@@ -51,9 +51,9 @@
                     </div>
 
                     <div class="field">
-                        <label class="label">Password Confirmation</label>
+                        <label class="label">Password Confirmation*</label>
                         <p class="control has-icons-left">
-                            <input class="input" type="password" name="conpassword" id="conpassword" required>
+                            <input class="input" type="password" name="conpassword" id="conpassword" autocomplete="new-password" required>
                             <span class="icon is-small is-left">
                             <i class="fas fa-lock"></i>
                             </span>
@@ -73,10 +73,10 @@
                             </a>
                             </p>
                             <p class="control is-expanded">
-                            <input class="input" type="tel" name="phone" id="phone">
+                            <input class="input" type="tel" pattern="[0-9]{10}" name="phone" id="phone" autocomplete="tel">
                             </p>
                         </div>
-                        <p class="help">Do not enter the first zero</p>
+                        <p class="help">Formate: 10 Digits; Do not enter the first zero.</p>
                         </div>
                     </div>
                 </div>
@@ -95,48 +95,36 @@
     $name = $email = $phone = $userPassword = $conUserPassword = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ampm";
-
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $userPassword = $_POST['password'];
-    $conUserPassword = $_POST['conpassword'];
-    $phone = $_POST['phone'];
-    
-    if($userPassword === $conUserPassword){
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $userPassword = $_POST['password'];
+        $conUserPassword = $_POST['conpassword'];
+        if($_POST['phone'] != "")
+            $phone = "+91" . $_POST['phone'];
         
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
+        if($userPassword === $conUserPassword){
+            $sqlQuery = "INSERT INTO users (name, email, password, phone) VALUES ('$name', '$email', '" . md5($userPassword) . "' ,'$phone' )";
+
+            if (mysqli_query($GLOBALS['sqlConnection'], $sqlQuery)) {
+                echo '
+                <div class="notification is-success">
+                <button class="delete"></button>
+                Registration Successful!
+                </div>';
+            } else
+                echo "Error : " . mysqli_error($GLOBALS['sqlConnection']);
+
+            mysqli_close($GLOBALS['sqlConnection']);
+
+            echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ./userview.php">';
+            exit();
         }
-
-        $sql = "INSERT INTO users (name, email, password, phone) VALUES ('$name', '$email', '" . md5($userPassword) . "' ,'$phone' )";
-
-        if (mysqli_query($conn, $sql)) {
-            echo '
-            <div class="notification is-success">
-              <button class="delete"></button>
-              Registration Successful!
-            </div>';
-        } else {
-            echo "Error : " . mysqli_error($conn);
-        }
-
-        mysqli_close($conn);
-
-        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ./userview.php">';
-        exit();
-    }
     else
-    echo '
-        <div class="notification is-danger">
-            <button class="delete"></button>
-            Passwords do not match!
-        </div>';
+        echo '
+            <div class="notification is-danger">
+                <button class="delete"></button>
+                Passwords do not match!
+            </div>';
 }
     include './inc/footer.php'
 ?>

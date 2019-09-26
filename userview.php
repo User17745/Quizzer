@@ -23,20 +23,8 @@
                         <tr><th><abbr title="Serial Number">S. No.</th><th>Name</th><th>E-Mail</th><th>Phone</th></tr>
                     </thead>
                     <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "ampm";
-                        
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-                        
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-                        
-                        $sql = "SELECT id, name, email, phone FROM users";
-                        $result = $conn->query($sql);
-                        
+                        $sqlQuery = "SELECT id, name, email, phone FROM users";
+                        $result = $GLOBALS['sqlConnection']->query($sqlQuery);
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td> <td>" . $row["email"] . "</td><td>" . $row["phone"] . "<td></tr>";
@@ -44,7 +32,7 @@
                         } else {
                             echo "0 results";
                         }
-                        $conn->close();
+                        $GLOBALS['sqlConnection']->close();
                     ?>
                 </tbody>
             </table>
