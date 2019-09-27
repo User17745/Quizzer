@@ -1,5 +1,7 @@
 <div class="sidebar">
     <div class="sidebar-header">
+        <div class="sidebar-toggle"><i class="fas fa-chevron-circle-left"></i></div>
+        <div class="is-clearfix"></div>
         <div class="sidebar-header-img">
             <img src="./assets/img/user_img.jpg" alt="user-img">
         </div>
@@ -13,7 +15,7 @@
         </div>
     </div>
     <div class="sidebar-menu">
-        <div class="sidebar-menu-item">
+        <div class="sidebar-menu-item active">
             <span class="sidebar-menu-item-icon">
                 <i class="fas fa-book-open"></i>
             </span>
@@ -34,7 +36,7 @@
                 <i class="fas fa-chart-area"></i>
             </span>
             <span class="sidebar-menu-item-text">
-                Performance
+                Stats
             </span>
         </div>
         <div class="sidebar-menu-item">
@@ -42,8 +44,9 @@
                 <i class="fas fa-newspaper"></i>
             </span>
             <span class="sidebar-menu-item-text">
-                Exams
+                News
             </span>
         </div>
     </div>
 </div>
+<!-- <span style="float: right;"><i class="fas fa-chevron-circle-right"></i></span> -->
