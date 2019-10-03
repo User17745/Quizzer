@@ -38,7 +38,8 @@
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
+      <span id="nav-user-icon"></span>
+      <div class="navbar-item" id="nav-left">
         <div class="buttons">
             <?php if(strpos($_SERVER["SCRIPT_NAME"], "userview.php") !== false): ?>
                 <form action="./inc/logout.php" method="post">

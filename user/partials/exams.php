@@ -9,15 +9,15 @@
     </div>
 
     <div class="exams-grid">
-        <div class="columns" style="margin: .5rem;">
-            <div class="column is-4 exam-box">A</div>
-            <div class="column is-4 exam-box">B</div>
-            <div class="column is-4 exam-box">C</div>
+        <div class="columns">
+            <div class="column exam-box">A</div>
+            <div class="column exam-box">B</div>
+            <div class="column exam-box">C</div>
         </div>
-        <div class="columns" style="margin: 0.5rem;">
-            <div class="column is-4 exam-box">D</div>
-            <div class="column is-4 exam-box">E</div>
-            <div class="column is-4 exam-box">F</div>
+        <div class="columns">
+            <div class="column exam-box">D</div>
+            <div class="column exam-box">E</div>
+            <div class="column exam-box">F</div>
         </div>
     </div>
 </div>

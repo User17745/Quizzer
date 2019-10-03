@@ -1,6 +1,7 @@
 <?php
+    $sqlConnection = new mysqli("localhost", "root", "", "quizzer");
     $sqlQuery = "SELECT * FROM question_bank WHERE subject = 'PHP'";
-    $result = $GLOBALS["sqlConnection"]->query($sqlQuery);
+    $result = $sqlConnection->query($sqlQuery);
     if($result->num_rows > 0)
         while($row = $result->fetch_assoc()){
             echo "<div class='card card-question'><div class='card-content'><div class='control'><div class='title' style='margin-bottom: 0;'>";
