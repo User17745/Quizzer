@@ -97,6 +97,16 @@
                     if(node.childNodes[i].classList.contains("sidebar-menu-item-text"))
                         changeTab(node.childNodes[i].innerHTML.trim());
         }
+        
+        
+        // Highlighting the new tab with "active" class.
+        for(menuItem of menuItems)
+            menuItem.classList.remove('active');
+        if(node.classList.contains('sidebar-menu-item'))
+            node.classList.add('active');
+        else
+            node = getParentNodeWithClass(node, 'sidebar-menu-item')
+            node.classList.add('active');
     }
 
     // Finds out the actual PHP file name for the requested tab and loads it using AJAX and jQuery 
@@ -114,6 +124,19 @@
             break;
             default: fileName = 'exams.php';
         }
+
+        // Sending fileName to dashboard to update in session.
+        $(document).ready(function() {
+            $.ajax({
+                type: "POST",
+                url: './user/dashboard.php',
+                data: {dash_page: fileName},
+                success: function(data) {
+                        //alert("dash_page sent!")
+                    },
+                dataType: 'html'
+                });
+        });
 
         //jQuery for AJAX to load the required PHP file
         $(document).ready(function() {
