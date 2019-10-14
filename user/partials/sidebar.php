@@ -118,7 +118,8 @@
             break;
             case 'My Tests': fileName = 'tests.php';
             break;
-            case 'Stats': fileName = 'stats.php';
+            //case 'Stats': fileName = 'stats.php';
+            case 'Stats': fileName = 'examPack.php';
             break;
             case 'News': fileName = 'news.php';
             break;
