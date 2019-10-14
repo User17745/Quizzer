@@ -170,6 +170,19 @@ nav.navbar {
 }
 /* User Sidebar */
 
+/* User Dashboard */
+#user-dashboard {
+    margin: 0;
+}
+#sidebar {
+    z-index: 2;
+}
+#user-dashboard-partial {
+    height: 38.2em;
+    overflow-y: auto;
+    z-index: 1;
+}
+
 /* Exams Tab */
 .card-owl {
     height: 20rem;

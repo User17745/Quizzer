@@ -133,9 +133,8 @@
                 url: './user/dashboard.php',
                 data: {dash_page: fileName},
                 success: function(data) {
-                        //alert("dash_page sent!")
-                    },
-                dataType: 'html'
+                        
+                    }
                 });
         });
 

@@ -1,5 +1,6 @@
 <?php
-    require_once('../../config.php');
+    // dirname(__FILE__, 3) required PHP >= 7.0; See: https://stackoverflow.com/questions/11094776/php-how-to-go-one-level-up-on-dirname-file/11094813
+    require_once(dirname(__FILE__, 3) . '/config.php');
     
     $sqlQuery = "SELECT * FROM question_bank WHERE subject = 'PHP'";
     $result = $GLOBALS['sqlConnection']->query($sqlQuery);
