@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="sidebar-menu">
-        <div class="sidebar-menu-item active">
+        <div class="sidebar-menu-item <?php if(isset($_SESSION['user-dash-page'])) if($_SESSION['user-dash-page'] == 'exams.php') echo 'active'; ?>">
             <span class="sidebar-menu-item-icon">
                 <i class="fas fa-book-open"></i>
             </span>
@@ -23,7 +23,7 @@
                 Exams
             </span>
         </div>
-        <div class="sidebar-menu-item">
+        <div class="sidebar-menu-item <?php if(isset($_SESSION['user-dash-page'])) if($_SESSION['user-dash-page'] == 'tests.php') echo 'active'; ?>">
             <span class="sidebar-menu-item-icon">
                 <i class="fab fa-pied-piper"></i>
             </span>
@@ -31,7 +31,7 @@
                 My Tests
             </span>
         </div>
-        <div class="sidebar-menu-item">
+        <div class="sidebar-menu-item <?php if(isset($_SESSION['user-dash-page'])) if($_SESSION['user-dash-page'] == 'stats.php') echo 'active'; ?>">
             <span class="sidebar-menu-item-icon">
                 <i class="fas fa-chart-area"></i>
             </span>
@@ -39,7 +39,7 @@
                 Stats
             </span>
         </div>
-        <div class="sidebar-menu-item">
+        <div class="sidebar-menu-item <?php if(isset($_SESSION['user-dash-page'])) if($_SESSION['user-dash-page'] == 'news.php') echo 'active'; ?>">
             <span class="sidebar-menu-item-icon">
                 <i class="fas fa-newspaper"></i>
             </span>
