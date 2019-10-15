@@ -111,6 +111,9 @@
 
     // Finds out the actual PHP file name for the requested tab and loads it using AJAX and jQuery 
     function changeTab(newTabName) {
+        // Enabling page load animation under the navigation bar
+        document.getElementById("loading-page").style.display = "block";
+        
         let fileName;
         
         switch(newTabName) {
@@ -145,7 +148,10 @@
                 url: './user/partials/' + fileName,
                 data: {session: '<?php echo session_id(); ?>'},
                 success: function(data) {
+                        // Loading the partial into the page.
                         $('#user-dashboard-partial').html(data)
+                        // Hiding the page loading animation under the navigation bar
+                        $('#loading-page').hide();
                     },
                 dataType: 'html'
                 });

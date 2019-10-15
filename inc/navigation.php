@@ -57,4 +57,5 @@
       </div>
     </div>
   </div>
+  <progress id="loading-page" class="progress is-small is-primary" max="100">15%</progress>
 </nav>
