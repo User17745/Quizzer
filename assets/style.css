@@ -25,6 +25,10 @@
     background: #555; 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     overflow-y: hidden;
 }
@@ -181,6 +185,7 @@ nav.navbar {
     height: 38.2em;
     overflow-y: auto;
     z-index: 1;
+    scroll-behavior: smooth;
 }
 
 /* Exams Tab */
@@ -254,6 +259,31 @@ nav.navbar {
     margin: 1rem;
 }
 
+#exam-pack-info td, #exam-pack-info th {
+    border: none;
+    padding: 0 .75rem;
+    font-weight: 500;
+}
+#exam-pack-info th {
+    font-weight: 200;
+}
+
+#exam-pack-details {
+    margin-top: 3rem;
+}
+#exam-pack-details-text {
+    font-size: .8rem;
+    height: 6rem;
+    display: block;
+    overflow: hidden;
+    -webkit-mask: linear-gradient(0deg, transparent, white);
+}
+#expand {
+    color: #34d1b1;
+    font-weight: 500;
+    float: right;
+}
+
 #exam-pack-sale {
     text-align: center;
 }
@@ -268,7 +298,7 @@ nav.navbar {
     color: #34d1b1;
 }
 #exam-pack-buy-button {
-    width: 70%;
+    width: 80%;
     font-size: 1.5rem;
     background: #34d1b1;
     color: #fff;
@@ -276,39 +306,101 @@ nav.navbar {
     border: 0;
 }
 
-#review-card.card {
+#exam-pack-reviews-stats-stars{
+    text-align: right;
+}
+#exam-pack-reviews-stats-average {
+    float: left;
+    text-align: left;
+    clear: both;
+    width: 100%;
+    margin-bottom: -1rem;
+}
+#exam-pack-reviews-stats-average-number {
+    font-size: 4rem;
+    font-weight: 600;
+}
+#exam-pack-reviews-stats-average-total {
+    font-size: 1rem;
+    font-weight: 600;
+}
+#exam-pack-reviews-stats-stars .stars .svg-inline--fa {
+    font-size: 0.5rem;
+}
+#exam-pack-reviews-stats-stars .fas.fa-star {
+    color: orange;
+}
+#exam-pack-reviews-stats-stars .far.fa-star {
+    color: #848484;
+}
+#exam-pack-reviews-stats-stars .stars{
+    margin-top: -.2rem;
+}
+#exam-pack-reviews-stats-stars progress{
+    text-align: -webkit-right;
+    margin-top: -.2rem;
+    height: .3rem;
+}
+#exam-pack-reviews-stats-stars .icon.is-small {
+    height: .5rem;
+    width: .5rem;
+}
+.transparent-card-button {
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    color: #34d1b1;
+    font-weight: 700;
+    font-size: .8rem;
+    margin: .2rem -1rem .2rem .2rem;
+    float: right;
+    padding: 0rem .2rem;
+}
+.transparent-card-button.is-focused:not(:active), .transparent-card-button:focus:not(:active) {
+    box-shadow: none;
+}
+
+.review-card.card {
     width: 20rem;
     float: right;
     background: #f8fafb;
     border-radius: 4px;
     box-shadow: none;
+    margin: 1rem;
 }
-#review-card .card-header {
+.review-card .card-header {
     box-shadow: none;
 }
-#review-card .card-header-title {
+.review-card .card-header-title {
     font-size: 1.3rem;
     font-weight: 400;
 }
-#review-card .card-content {
+.review-card .card-content {
     padding: 0 1.5rem 1rem 1.5rem;
 }
-#review-card label {
+.review-card label {
     margin: .5rem 0;
     font-weight: 500;
 }
-#review-card input[type=text] {
+.review-card input[type=text] {
     background: #e3e9ed;
     border: none;
     height: 4rem;
     box-shadow: none;
 }
-#review-card input[type=submit] {
+.review-card input[type=submit] {
     width: 100%;
     font-weight: 100;
     background: #00d1b2;
 }
-#review-card #rating-stars {
+.review-card input[type=submit]:hover {
+    background: rgba(0,209,178, .8);
+}
+.review-card #rating-stars {
     line-height: 2.7rem;
+}
+
+.review-card.student-review.card {
+    float: left;
+    width: 18rem;
 }
 /* Exam Pack  */
