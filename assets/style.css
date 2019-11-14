@@ -281,7 +281,7 @@ nav progress#loading-page:indeterminate{
     font-weight: 200;
 }
 
-#exam-pack-details {
+#exam-pack-info {
     margin-top: 3rem;
 }
 #exam-pack-details-text {
@@ -406,6 +406,9 @@ nav progress#loading-page:indeterminate{
     background: #00d1b2;
 }
 .review-card input[type=submit]:hover {
+    background: rgba(0,209,178, .8);
+}
+.review-card input[type=submit].is-active, .review-card input[type=submit]:active {
     background: rgba(0,209,178, .8);
 }
 .review-card #rating-stars {
