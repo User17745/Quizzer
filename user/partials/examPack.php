@@ -1,8 +1,14 @@
+<?php 
+    require_once './classes/ExamPack.php';
+    //For test sake...
+    $id = 1;
+    $exam_pack = new ExamPack($id);
+?>
 <section id="exam-pack-hero" class="hero">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        e-Learning & Presentation 
+        <?php echo $exam_pack->getName(); ?> 
       </h1>
       <h2 class="subtitle">
         <span id="exam-pack-rating">
@@ -23,7 +29,7 @@
             <div class="columns">
                 <div id="exam-provider-box" class="column">
                     <img src="././assets/img/person-male-small.png" id="exam-pack-provider-image" class="is-rounded" alt="exam-pack-provider-image">
-                
+
                     <div id="exam-pack-provider-info">
                         <div id="exam-pack-provider-name">
                             <h2>TexMux Technologies</h2>
@@ -39,14 +45,14 @@
         </div>
         <div id="exam-pack-conversion" class="column">
             <div id="exam-pack-meta">
-                <span id="exam-date-time"><span class="icon is-large"><i class="far fa-calendar-alt fa-2x"></i></span>24th December</span>  <span id="exam-type"><span class="icon is-large"><i class="fas fa-certificate fa-2x"></i></span>Government</span>  <span id="exam-seats"><span class="icon is-large"><i class="fas fa-user-tie fa-2x"></i></span>240</span>  <span id="exam-qualification-req"><span class="icon is-large"><i class="far fa-id-badge fa-2x"></i></span>Masters Level</span>
+                <span id="exam-date-time"><span class="icon is-large"><i class="far fa-calendar-alt fa-2x"></i></span><?php echo date("d F, y", strtotime($exam_pack->getDate())); ?></span>  <span id="exam-type"><span class="icon is-large"><i class="fas fa-certificate fa-2x"></i></span><?php echo $exam_pack->getType(); ?></span>  <span id="exam-seats"><span class="icon is-large"><i class="fas fa-user-tie fa-2x"></i></span><?php echo $exam_pack->getNumSeats(); ?></span>  <span id="exam-qualification-req"><span class="icon is-large"><i class="far fa-id-badge fa-2x"></i></span><?php echo $exam_pack->getRequiredQualifications(); ?></span>
             </div>
             <div id="exam-pack-sale">
                 <a id="exam-pack-buy-button" class="button">
                     <span class="icon is-small">
                         <i class="fas fa-shopping-basket"></i>
                     </span>
-                    <span>₹250</span>
+                    <span>₹<?php echo $exam_pack->getPrice(); ?></span>
                 </a>
             </div>
         </div>
@@ -61,15 +67,7 @@
                 <h1 class="title">Details</h1>
                 <p class="subtitle" style="width: 350px;">Details about this exam package.</p>
                 <div id="exam-pack-details-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec feugiat in fermentum posuere. Sit amet facilisis magna etiam tempor orci eu. Id diam vel quam elementum. Ac felis donec et odio pellentesque diam volutpat commodo. Scelerisque purus semper eget duis at. Ullamcorper a lacus vestibulum sed arcu non odio. Quis hendrerit dolor magna eget est. Odio pellentesque diam volutpat commodo sed egestas egestas. Pellentesque adipiscing commodo elit at imperdiet dui accumsan. Quam pellentesque nec nam aliquam. Morbi leo urna molestie at elementum eu. Pretium nibh ipsum consequat nisl vel. Consequat id porta nibh venenatis cras sed felis. Commodo nulla facilisi nullam vehicula. Porttitor lacus luctus accumsan tortor posuere. Pellentesque dignissim enim sit amet venenatis urna cursus. Sem fringilla ut morbi tincidunt augue interdum. Quis ipsum suspendisse ultrices gravida dictum. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla.</p>
-                    <br>
-                    <p>Nec dui nunc mattis enim ut tellus elementum. Risus ultricies tristique nulla aliquet enim tortor at. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Netus et malesuada fames ac. Amet nulla facilisi morbi tempus iaculis urna. In eu mi bibendum neque. Arcu bibendum at varius vel pharetra vel turpis. Mattis enim ut tellus elementum sagittis. Id cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Faucibus nisl tincidunt eget nullam non nisi est.</p>
-                    <br>
-                    <p>At imperdiet dui accumsan sit amet. Egestas quis ipsum suspendisse ultrices gravida dictum. Gravida rutrum quisque non tellus orci ac auctor augue mauris. Elementum sagittis vitae et leo. Odio aenean sed adipiscing diam donec adipiscing tristique risus. Vitae proin sagittis nisl rhoncus mattis. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Donec adipiscing tristique risus nec feugiat in fermentum posuere. Egestas integer eget aliquet nibh praesent tristique magna. Sed faucibus turpis in eu. Eu feugiat pretium nibh ipsum consequat nisl vel pretium. Non nisi est sit amet facilisis magna. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Ipsum dolor sit amet consectetur adipiscing elit. Lacus sed turpis tincidunt id aliquet risus feugiat in ante. Venenatis cras sed felis eget velit aliquet. Lobortis mattis aliquam faucibus purus in. Sit amet massa vitae tortor condimentum lacinia. Volutpat blandit aliquam etiam erat.</p>
-                    <br>
-                    <p>Faucibus purus in massa tempor nec feugiat. Habitant morbi tristique senectus et netus et malesuada fames ac. Quam lacus suspendisse faucibus interdum posuere lorem. Pulvinar pellentesque habitant morbi tristique senectus et netus et malesuada. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Praesent elementum facilisis leo vel fringilla est ullamcorper. Ipsum a arcu cursus vitae. Dolor morbi non arcu risus. Dui ut ornare lectus sit. Urna condimentum mattis pellentesque id nibh tortor. In vitae turpis massa sed elementum tempus egestas sed. Quisque sagittis purus sit amet volutpat consequat.</p>
-                    <br>
-                    <p>Lacus sed turpis tincidunt id aliquet risus feugiat in ante. Neque viverra justo nec ultrices dui sapien eget. Amet facilisis magna etiam tempor orci. Neque viverra justo nec ultrices dui sapien eget mi. Etiam non quam lacus suspendisse faucibus interdum posuere. Orci sagittis eu volutpat odio facilisis mauris. Fusce id velit ut tortor pretium viverra suspendisse. Facilisis gravida neque convallis a cras semper auctor neque. Ut placerat orci nulla pellentesque dignissim. Mi quis hendrerit dolor magna eget est lorem. Malesuada pellentesque elit eget gravida. Non sodales neque sodales ut etiam.</p>
+                    <?php echo $exam_pack->getDetails() ?>
                 </div>
                 <a id="expand">more</a>
             </div>
@@ -79,14 +77,14 @@
                 <p class="subtitle" style="width: 350px;">A quick overview of the exam package.</p>
                 <table class="table" style="margin: 0 0 1rem 0;">
                     <tbody>
-                        <tr><th>Exam</th><td>e-Learning & Presentation</td></tr>
-                        <tr><th>Exam type</th><td>Private MNC</td></tr>
-                        <tr><th>Organization</th><td>TCS, Infosys</td></tr>
-                        <tr><th>Number of available position</th><td>200+</td></tr>
-                        <tr><th>Required qualifications</th><td>Graduation</td></tr>
-                        <tr><th>Number of included tests</th><td>4</td></tr>
-                        <tr><th>Number of included resources</th><td>5</td></tr>
-                        <tr><th>Study material (hours)</th><td>5.6</td></tr>
+                        <tr><th>Exam</th><td><?php echo $exam_pack->getName(); ?></td></tr>
+                        <tr><th>Exam type</th><td><?php echo $exam_pack->getType(); ?></td></tr>
+                        <tr><th>Organization</th><td><?php echo $exam_pack->getOrganization(); ?></td></tr>
+                        <tr><th>Number of available position</th><td><?php echo $exam_pack->getNumSeats(); ?></td></tr>
+                        <tr><th>Required qualifications</th><td><?php echo $exam_pack->getRequiredQualifications(); ?></td></tr>
+                        <tr><th>Number of included tests</th><td><?php echo $exam_pack->getNumTestsIncluded(); ?></td></tr>
+                        <tr><th>Number of included resources</th><td><?php echo $exam_pack->getNumResourcesIncluded(); ?></td></tr>
+                        <tr><th>Study material (hours)</th><td><?php echo $exam_pack->getStudyMaterialAmountHrs(); ?></td></tr>
                     </tbody>
                 </table>
                 <a id="exam-apply" class="button">
