@@ -8,6 +8,11 @@
     background: #34d1b1;
 }
 
+/* Custom Border Highlight on active */
+.input:active, .input:focus, .is-active.input, .is-active.textarea, .is-focused.input, .is-focused.textarea, .select select.is-active, .select select.is-focused, .select select:active, .select select:focus, .textarea:active, .textarea:focus {
+    border-color: #34d1b1;
+    box-shadow: 0 0 0 0.125em rgba(50,115,220,.25);
+}
 
 /* Custom Scroll */
 ::-webkit-scrollbar {
