@@ -189,60 +189,19 @@
         <h1 class="title">Ratings & Reviews</h1>
         <p class="subtitle" style="width: 350px;">See what others have to say about this exam pack.</p>
 
-        <div class="review-card student-review card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    Student Review
-                </p>
-            </header>
-            <div class="card-content">
-                <p>The study material is to the point and I really like the consise nature of notes.</p>
-                <span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star-half-alt"></span>
-                    <span class="far fa-star"></span>
-                </span> 
-            </div>
-        </div>
-
-        <div class="review-card student-review card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    Student Review
-                </p>
-            </header>
-            <div class="card-content">
-                <p>The study material is to the point and I really like the consise nature of notes.</p>
-                <span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star-half-alt"></span>
-                    <span class="far fa-star"></span>
-                </span> 
-            </div>
-        </div>
-
-        <div class="review-card student-review card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    Student Review
-                </p>
-            </header>
-            <div class="card-content">
-                <p>The study material is to the point and I really like the consise nature of notes.</p>
-                <span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star"></span>
-                    <span class="fas fa-star-half-alt"></span>
-                    <span class="far fa-star"></span>
-                </span> 
-            </div>
-        </div>
-
+        <?php 
+            // Show only the first three reviews
+            $count = 0;
+            foreach($exam_pack->getRelatedReviewIds() as $reviewId){
+                if($count > 2)
+                    break;
+                else{
+                    $review = new Review($reviewId);
+                    include(dirname(__FILE__, 2) . '/widgets/review.php');
+                }       
+            }
+        ?>
+        
     </div>
 </section>
 

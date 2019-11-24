@@ -66,9 +66,11 @@
         }
 
         private function findRelatedReviewIdList() {
-            while($row = $this->data->fetch_assoc()) {
-                $this->relatedReviewIds.push($row[$this->review_id_field_name]);
-            }
+            $query = "SELECT * FROM $this->review_table_name WHERE $this->pack_id_field_name='$this->id'";
+            $this->data = $GLOBALS['sqlConnection']->query($query);
+            if($this->data->num_rows > 0)
+                while($row = $this->data->fetch_assoc()) 
+                    array_push($this->relatedReviewIds, $row[$this->review_id_field_name]);
         }
 
         /**

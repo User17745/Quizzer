@@ -4,10 +4,11 @@
 
     class Review {
 
-        // Table Name
-        private $table_name = "pack_reviews";
+        // Table Names
+        private $review_table_name = "pack_reviews";
+        private $user_table_name = "users";
 
-        // Fields
+        // Review Table Fields
         private $id;
         private $examPackId;
         private $rating;
@@ -16,13 +17,15 @@
         private $createdAt;
         private $userId;
 
+        // User Table Fields
+        private $userName;
+        
         private $data;
 
         function __construct($review_id) {
             $this->id = $review_id;
 
-            $query = "SELECT * FROM $this->table_name WHERE id = '$this->id';";
-            
+            $query = "SELECT $this->review_table_name.*, $this->user_table_name.name FROM $this->review_table_name INNER JOIN $this->user_table_name ON $this->review_table_name.user_id = $this->user_table_name.id WHERE $this->review_table_name.id = '$this->id';";
             $this->data = $GLOBALS['sqlConnection']->query($query);
 
             if($this->data->num_rows > 0)
