@@ -1,12 +1,14 @@
 <?php
     
     require_once(dirname(__FILE__, 2) . '/config.php');
+    require_once(dirname(__FILE__, 2) . '/controllers/PackReviewController.php');
 
     class ExamPack {
 
+        // Table Name
         private $table_name = "exam_packs";
 
-        //Variables
+        // Fields
         private $id;
         private $name;
         private $price;
@@ -26,36 +28,63 @@
         private $providerId;
         private $numSales;
 
+        // Variables to be received from PackReviewController
+        private $overalRating;
+        private $percentFiveRating;
+        private $percentFourRating;
+        private $percentThreeRating;
+        private $percentTwoRating;
+        private $percentOneRating;
+        private $relatedReviewIds = array();
+
         private $data;
 
-        function __construct($id) {
-            $this->id = $id;
+        function __construct($pack_id) {
+            $this->id = $pack_id;
             
-            $query = "SELECT * FROM $this->table_name WHERE id = '$id';";
-            
-            $this->data = $GLOBALS['sqlConnection']->query($query);
-            
-            if($this->data->num_rows > 0)
-                while($row = $this->data->fetch_assoc()) {
-                    $this->name = $row['name'];
-                    $this->price = $row['price'];
-                    $this->thumbImg = $row['thumb_img'];
-                    $this->coverImg = $row['cover_img'];
-                    $this->date = $row['date'];
-                    $this->type = $row['type'];
-                    $this->organization = $row['organization'];
-                    $this->numSeats = $row['no_seats'];
-                    $this->requiredQualifications = $row['required_qualifications'];
-                    $this->details = $row['details'];
-                    $this->testsIdList = $row['tests_id_list'];
-                    $this->studyMaterialIdList = $row['study_material_id_list'];
-                    $this->numTestsIncluded = $row['no_tests_included'];
-                    $this->numResourcesIncluded = $row['no_resources_included'];
-                    $this->studyMaterialAmountHrs = $row['study_material_amount_hrs'];
-                    $this->providerId = $row['provider_id'];
-                    $this->numSales = $row['no_sales'];
-                }
+            $this->getFieldsData();
+            $this->getVariableValues();
         }
+
+        private function getFieldsData() {
+                $query = "SELECT * FROM $this->table_name WHERE id = '$this->id';";
+                
+                $this->data = $GLOBALS['sqlConnection']->query($query);
+                
+                if($this->data->num_rows > 0)
+                        while($row = $this->data->fetch_assoc()) {
+                                $this->name = $row['name'];
+                                $this->price = $row['price'];
+                                $this->thumbImg = $row['thumb_img'];
+                                $this->coverImg = $row['cover_img'];
+                                $this->date = $row['date'];
+                                $this->type = $row['type'];
+                                $this->organization = $row['organization'];
+                                $this->numSeats = $row['no_seats'];
+                                $this->requiredQualifications = $row['required_qualifications'];
+                                $this->details = $row['details'];
+                                $this->testsIdList = $row['tests_id_list'];
+                                $this->studyMaterialIdList = $row['study_material_id_list'];
+                                $this->numTestsIncluded = $row['no_tests_included'];
+                                $this->numResourcesIncluded = $row['no_resources_included'];
+                                $this->studyMaterialAmountHrs = $row['study_material_amount_hrs'];
+                                $this->providerId = $row['provider_id'];
+                                $this->numSales = $row['no_sales'];
+                        }
+        }
+
+        private function getVariableValues(){
+                $packReviewController = new PackReviewController($this->id);
+
+                $this->overalRating = $packReviewController->getOveralRating();
+                $this->percentFiveRating = $packReviewController->getpercentFiveRating();
+                $this->percentFourRating = $packReviewController->getpercentFourRating();
+                $this->percentThreeRating = $packReviewController->getpercentThreeRating();
+                $this->percentTwoRating = $packReviewController->getpercentTwoRating();
+                $this->percentOneRating = $packReviewController->getpercentOneRating();
+                $this->relatedReviewIds = $packReviewController->getRelatedReviewIds();
+        }
+
 
         /**
          * Get the value of id
@@ -199,5 +228,61 @@
         public function getNumSales()
         {
                 return $this->numSales;
+        }
+
+        /**
+         * Get the value of overalRating
+         */ 
+        public function getOveralRating()
+        {
+                return $this->overalRating;
+        }
+
+        /**
+         * Get the value of percentFiveRating
+         */ 
+        public function getPercentFiveRating()
+        {
+                return $this->percentFiveRating;
+        }
+
+        /**
+         * Get the value of percentFourRating
+         */ 
+        public function getPercentFourRating()
+        {
+                return $this->percentFourRating;
+        }
+
+        /**
+         * Get the value of percentThreeRating
+         */ 
+        public function getPercentThreeRating()
+        {
+                return $this->percentThreeRating;
+        }
+
+        /**
+         * Get the value of percentTwoRating
+         */ 
+        public function getPercentTwoRating()
+        {
+                return $this->percentTwoRating;
+        }
+
+        /**
+         * Get the value of percentOneRating
+         */ 
+        public function getPercentOneRating()
+        {
+                return $this->percentOneRating;
+        }
+
+        /**
+         * Get the value of relatedReviewIds
+         */ 
+        public function getRelatedReviewIds()
+        {
+                return $this->relatedReviewIds;
         }
     }

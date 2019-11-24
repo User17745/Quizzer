@@ -4,8 +4,10 @@
 
     class Review {
 
+        // Table Name
         private $table_name = "pack_reviews";
 
+        // Fields
         private $id;
         private $examPackId;
         private $rating;
@@ -16,10 +18,10 @@
 
         private $data;
 
-        function __construct($id) {
-            $this->id = $id;
+        function __construct($review_id) {
+            $this->id = $review_id;
 
-            $query = "SELECT * FROM $this->table_name WHERE id = '$id';";
+            $query = "SELECT * FROM $this->table_name WHERE id = '$this->id';";
             
             $this->data = $GLOBALS['sqlConnection']->query($query);
 

@@ -1,10 +1,12 @@
 <?php 
     require_once(dirname(__FILE__, 3) . '/classes/ExamPack.php');
+    require_once(dirname(__FILE__, 3) . '/classes/Review.php');
+
     //For test sake...
     $id = 1;
     $exam_pack = new ExamPack($id);
 ?>
-<section id="exam-pack-hero" class="hero">
+<section id="exam-pack-hero" class="hero" style="linear-gradient(to bottom, rgba(255, 255, 255, 0.0), rgba(0,0,0, 0.6)), url('<?php echo $exam_pack->getCoverImg(); ?>');">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -102,7 +104,7 @@
             <div id="exam-pack-reviews-stats" class="review-card card">
                 <div id="exam-pack-reviews-stats-stars" class="card-content">
                     <span id="exam-pack-reviews-stats-average">
-                        <span id="exam-pack-reviews-stats-average-number">4.5</span><span id="exam-pack-reviews-stats-average-total">out of 5.</span>
+                        <span id="exam-pack-reviews-stats-average-number"><?php echo round($exam_pack->getOveralRating(), 1); ?></span><span id="exam-pack-reviews-stats-average-total">out of 5.</span>
                     </span>
                     <div id="stars-5" class="stars">
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
@@ -111,7 +113,7 @@
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
 
-                        <progress class="progress is-small" value="60" max="100">60%</progress>
+                        <progress class="progress is-small" value="<?php echo $exam_pack->getPercentFiveRating(); ?>" max="100"><?php echo $exam_pack->getPercentFiveRating(); ?></progress>
                     </div>
                     <div id="stars-4" class="stars">
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
@@ -119,25 +121,25 @@
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
 
-                        <progress class="progress is-small" value="25" max="100">25%</progress>
+                        <progress class="progress is-small" value="<?php echo $exam_pack->getPercentFourRating(); ?>" max="100"><?php echo $exam_pack->getPercentFourRating(); ?></progress>
                     </div>
                     <div id="stars-3" class="stars">
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
 
-                        <progress class="progress is-small" value="10" max="100">10%</progress>
+                        <progress class="progress is-small" value="<?php echo $exam_pack->getPercentThreeRating(); ?>" max="100"><?php echo $exam_pack->getPercentThreeRating(); ?></progress>
                     </div>
                     <div id="stars-2" class="stars">
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
 
-                        <progress class="progress is-small" value="4" max="100">4%</progress>
+                        <progress class="progress is-small" value="<?php echo $exam_pack->getPercentTwoRating(); ?>" max="100"><?php echo $exam_pack->getPercentTwoRating(); ?></progress>
                     </div>
                     <div id="stars-1" class="stars">
                         <span class="icon is-small"><i class="fas fa-star"></i></span>
 
-                        <progress class="progress is-small" value="1" max="100">1%</progress>
+                        <progress class="progress is-small" value="<?php echo $exam_pack->getPercentOneRating(); ?>" max="100"><?php echo $exam_pack->getPercentOneRating(); ?></progress>
                     </div>    
                     <a id="show-reviews" class="button transparent-card-button" href="#exam-pack-review-list">See Reviews</a>
                 </div>
