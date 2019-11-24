@@ -196,12 +196,13 @@
                 if($count > 2)
                     break;
                 else{
+                    $count ++;
                     $review = new Review($reviewId);
                     include(dirname(__FILE__, 2) . '/widgets/review.php');
                 }       
             }
         ?>
-        
+
     </div>
 </section>
 
