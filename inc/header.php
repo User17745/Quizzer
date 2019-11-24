@@ -1,7 +1,7 @@
 <?php 
-require_once './config.php';
-if(session_status() == PHP_SESSION_NONE)
-    session_start(); 
+    require_once(dirname(__FILE__, 2) . '/config.php');
+    if(session_status() == PHP_SESSION_NONE)
+        session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">

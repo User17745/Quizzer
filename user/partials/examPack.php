@@ -1,5 +1,5 @@
 <?php 
-    require_once './classes/ExamPack.php';
+    require_once(dirname(__FILE__, 3) . '/classes/ExamPack.php');
     //For test sake...
     $id = 1;
     $exam_pack = new ExamPack($id);

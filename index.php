@@ -93,4 +93,3 @@
     }
 
     include './inc/footer.php';
-  ?>

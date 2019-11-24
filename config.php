@@ -7,4 +7,3 @@
     $GLOBALS['sqlConnection'] = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if($GLOBALS['sqlConnection']->connect_error)
         die("Could not connect to the database: " . $GLOBALS['sqlConnection']->connect_error);
-?>

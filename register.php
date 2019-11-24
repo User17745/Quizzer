@@ -125,5 +125,4 @@
                 Passwords do not match!
             </div>';
 }
-    include './inc/footer.php'
-?>
+    include './inc/footer.php';

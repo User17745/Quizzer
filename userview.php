@@ -12,5 +12,4 @@
     else
         include './user/dashboard.php';
 
-    include './inc/footer.php'
-?>
+    include './inc/footer.php';
