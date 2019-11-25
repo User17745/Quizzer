@@ -15,9 +15,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" rel="stylesheet" type="text/css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="./assets/font-style.css" rel="stylesheet">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="./assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/owl.theme.default.min.css">
+    <link href="./assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="./assets/owl.theme.default.min.css" rel="stylesheet">
     <!-- Custom Stylesheet -->
     <link href="./assets/style.css" rel="stylesheet" type="text/css">
     <!-- jQuery Script -->

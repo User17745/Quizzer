@@ -1,3 +1,7 @@
+* {
+    font-family: 'product_sans_regular' !important;
+}
+
 /* Custom Text Selection Color */
 ::-moz-selection {
     color: #fff;
@@ -9,7 +13,7 @@
 }
 
 /* Custom Border Highlight on active */
-.input:active, .input:focus, .is-active.input, .is-active.textarea, .is-focused.input, .is-focused.textarea, .select select.is-active, .select select.is-focused, .select select:active, .select select:focus, .textarea:active, .textarea:focus {
+.button.is-focused:not(:active), .button:focus:not(:active), .input:active, .input:focus, .is-active.input, .is-active.textarea, .is-focused.input, .is-focused.textarea, .select select.is-active, .select select.is-focused, .select select:active, .select select:focus, .textarea:active, .textarea:focus {
     border-color: #34d1b1;
     box-shadow: 0 0 0 0.125em rgba(50,115,220,.25);
 }
@@ -43,7 +47,7 @@ nav.navbar {
     box-shadow: 0 4px 8px 0 rgba(0,209,178, 0.05), 0 6px 20px 0 rgba(0,209,178, 0.005);
 }
 .navbar-brand a.navbar-item {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', cursive !important;
     color: #00d1b2;
     font-size: 1.2rem;
 }
