@@ -7,6 +7,8 @@
     if($_SERVER["REQUEST_METHOD"] == 'POST') {
         if(isset($_POST['dash_page']))
             $_SESSION['user-dash-page'] = $_POST['dash_page'];
+        if(isset($_POST['pack_id']))
+            $_SESSION['pack_id'] = $_POST['pack_id'];
     }
 
     if(!isset($_SESSION['user-dash-page']))

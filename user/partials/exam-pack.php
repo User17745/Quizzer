@@ -2,11 +2,11 @@
     require_once(dirname(__FILE__, 3) . '/classes/ExamPack.php');
     require_once(dirname(__FILE__, 3) . '/classes/Review.php');
 
-    //For test sake...
-    $id = 1;
-    $exam_pack = new ExamPack($id);
+    if(session_status() != 2)
+        session_start();
+    $exam_pack = new ExamPack($_SESSION['pack_id']);
 ?>
-<section id="exam-pack-hero" class="hero" style="linear-gradient(to bottom, rgba(255, 255, 255, 0.0), rgba(0,0,0, 0.6)), url('<?php echo $exam_pack->getCoverImg(); ?>');">
+<section id="exam-pack-hero" class="hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.0), rgba(0,0,0, 0.6)), url('<?php echo $exam_pack->getCoverImg(); ?>');">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">

@@ -1,3 +1,7 @@
+<?php
+    require_once(dirname(__FILE__, 3) . '/classes/Store.php');
+    $store = new Store();
+?>
 <div class="exams">
     <div class="owl-carousel">
         <div class="card-owl"><img src="././assets/img/slide1" alt="slide-one"></div>
@@ -9,10 +13,15 @@
     </div>
 
     <div class="exams-grid">
-        <h1 class="title">Top Selling Exam Packs</h1>
+        <h1 class="title">Featured Exam Packs</h1>
         <p class="subtitle" style="width: 350px;">Our most popular exam packs are here and at amazing prices!</p>
         <div class="columns">
-            <div class="column exam-box"><img src="././assets/img/exam1.png" alt="exam-one"></div>
+            <?php
+                foreach($store->getFeaturedPackIds() as $pack_id){
+                    include 'exam-pack-card.php';
+                }
+            ?>
+            <!-- <div class="column exam-box"><img src="././assets/img/exam1.png" alt="exam-one"></div> -->
             <div class="column exam-box"><img src="././assets/img/exam2.png" alt="exam-two"></div>
             <div class="column exam-box"><img src="././assets/img/exam3.png" alt="exam-three"></div>
         </div>
@@ -23,18 +32,5 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-        $('.owl-carousel').owlCarousel({
-            center: true,
-            items:2,
-            loop:true,
-            margin:30,
-            responsive:{
-                600:{
-                    items:2
-                }
-            }
-        });
-    });
-</script>
+
+<script src="user/assets/store-script.js"></script>
